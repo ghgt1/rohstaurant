@@ -1,0 +1,84 @@
+{% extends 'foods/base.html'%} <!--base라는 부모를 상속받겠다.-->
+{% load static %} <!--html은 템플릿에, 나머지 css,image,fonts들은 static에
+옮겼으므로 이것이 작동하게 해줘야함.즉 스태틱 파일들을 이 템플릿에서 사용하겠다...-->
+<!--아래와 같이하면 부모부분의 block만 수정하면끝. 나머지부분은 그대로상속-->
+{%block date-block%}
+  <div>{{date}}</div>
+{% endblock date-block%}
+
+{%block food-container%}
+  {% for menu in menus %}
+    <div class="food">
+      <img src={% static menu.img_path %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>{{menu.name}}</h3>
+        <p>{{menu.discription}}</p>
+        <a href="{{menu.id}}">메뉴 보기</a>
+      </div>
+    </div>
+  {% endfor %}
+<!--
+<div class="food">
+      <img src={% static 'foods/images/chicken.jpg'%} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코딩에 빠진 닭</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="/foods/chicken">메뉴 보기</a>
+      </div>
+    </div>
+    
+    <div class="food">
+      <img src={% static 'foods/images/sushi.jpg'%} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코코스시</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+    
+    <div class="food">
+      <img src={% static 'foods/images/burger.jpg'%} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코데리아</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+    
+    <div class="food">
+      <img src={% static 'foods/images/bibimbap.jpg'%} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코가네</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/banana.jpg'%} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코나나</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/croquette.jpg'%} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코리바게트</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/pumpkin_soup.jpg'%} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코죽</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+    -->
+{%endblock food-container%}

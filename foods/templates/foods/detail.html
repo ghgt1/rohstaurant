@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>코스토랑</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href={% static 'foods/css/styles_detail.css' %}> <!--
+        이경로들도 static으로 변경해줘야함.
+    -->
+    </head>
+        <body>
+        <div class="food-details">
+            <h2>{{ name }}</h2> <!--동적으로 만든 템플릿-->
+            <div>{{description}}</div>
+            <div>{{price}} 원</div>
+            <img src = {% static img_path %}>
+            <a href="/foods/menu">돌아가기</a>
+        </div>
+        </body>
+</html>

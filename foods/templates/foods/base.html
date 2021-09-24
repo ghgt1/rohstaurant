@@ -1,0 +1,29 @@
+{% load static %} <!--html은 템플릿에, 나머지 css,image,fonts들은 static에
+옮겼으므로 이것이 작동하게 해줘야함.즉 스태틱 파일들을 이 템플릿에서 사용하겠다...-->
+<!--base템플릿을 부모로 상속할수있게 만들겠다. 변경되는부분을 블럭으로만든다-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>코스토랑</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href={% static 'foods/css/styles.css' %}> <!--
+    이경로들도 static으로 변경해줘야함.
+  -->
+</head>
+<body>
+  <div> 
+    {%block date-block%}
+    {%endblock date-block%}
+  </div>
+  <hr/>
+
+  <h1>코스토랑</h1>
+  <h2>넌 코딩할때가 제일 이뻐</h2>
+  
+  <div class="food-container">
+    {% block  food-container %}
+    {% endblock food-container %}
+        
+  </div>
+</body>
+</html>
